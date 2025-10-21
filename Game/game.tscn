@@ -22,69 +22,67 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_e2o6t")
 [node name="Food" type="Node2D" parent="."]
 
 [node name="food" parent="Food" instance=ExtResource("1_qmv3x")]
-position = Vector2(342, 349)
+position = Vector2(477, 517)
 food = ExtResource("2_oomkl")
 
 [node name="food2" parent="Food" instance=ExtResource("1_qmv3x")]
-position = Vector2(183, 361)
+position = Vector2(470, 408)
 food = ExtResource("3_buohc")
 
 [node name="food3" parent="Food" instance=ExtResource("1_qmv3x")]
-position = Vector2(526, 354)
+position = Vector2(466, 300)
 food = ExtResource("4_kul4i")
-
-[node name="Appliances" type="Node2D" parent="."]
-
-[node name="Appliance2" parent="Appliances" instance=ExtResource("5_7gi1t")]
-position = Vector2(450, 670)
-appliance_type = 4
-
-[node name="Appliance5" parent="Appliances" instance=ExtResource("5_7gi1t")]
-position = Vector2(50, 670)
-appliance_type = 3
-assembly_station_owner = 1
-
-[node name="Appliance" parent="Appliances" instance=ExtResource("5_7gi1t")]
-position = Vector2(250, 670)
-appliance_type = 1
-
-[node name="Appliance3" parent="Appliances" instance=ExtResource("5_7gi1t")]
-position = Vector2(150, 670)
-
-[node name="Appliance4" parent="Appliances" instance=ExtResource("5_7gi1t")]
-position = Vector2(350, 670)
-appliance_type = 2
-
-[node name="Appliance6" parent="Appliances" instance=ExtResource("5_7gi1t")]
-position = Vector2(550, 670)
-appliance_type = 5
-
-[node name="Appliance7" parent="Appliances" instance=ExtResource("5_7gi1t")]
-position = Vector2(50, 450)
-appliance_type = 3
-assembly_station_owner = 2
-
-[node name="Appliance8" parent="Appliances" instance=ExtResource("5_7gi1t")]
-position = Vector2(50, 350)
-appliance_type = 3
-assembly_station_owner = 3
-
-[node name="Appliance9" parent="Appliances" instance=ExtResource("5_7gi1t")]
-position = Vector2(50, 250)
-appliance_type = 3
-assembly_station_owner = 4
 
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="CharacterBody2D" parent="Characters" instance=ExtResource("6_fsxsm")]
-z_index = 1
-position = Vector2(237, 518)
+position = Vector2(110, 384)
 player_id = 1
 
 [node name="CharacterBody2D2" parent="Characters" instance=ExtResource("6_fsxsm")]
-z_index = 1
-position = Vector2(366, 522)
+position = Vector2(681, 198)
 player_id = 2
+
+[node name="Appliances" type="Node2D" parent="."]
+
+[node name="Appliance2" parent="Appliances" instance=ExtResource("5_7gi1t")]
+position = Vector2(204, 497)
+appliance_type = 4
+
+[node name="Appliance5" parent="Appliances" instance=ExtResource("5_7gi1t")]
+position = Vector2(105, 59)
+appliance_type = 3
+assembly_station_owner = 1
+
+[node name="Appliance" parent="Appliances" instance=ExtResource("5_7gi1t")]
+position = Vector2(316, 67)
+appliance_type = 1
+
+[node name="Appliance3" parent="Appliances" instance=ExtResource("5_7gi1t")]
+position = Vector2(316, 166)
+
+[node name="Appliance4" parent="Appliances" instance=ExtResource("5_7gi1t")]
+position = Vector2(106, 497)
+appliance_type = 2
+
+[node name="Appliance6" parent="Appliances" instance=ExtResource("5_7gi1t")]
+position = Vector2(303, 497)
+appliance_type = 5
+
+[node name="Appliance7" parent="Appliances" instance=ExtResource("5_7gi1t")]
+position = Vector2(105, 158)
+appliance_type = 3
+assembly_station_owner = 2
+
+[node name="Appliance8" parent="Appliances" instance=ExtResource("5_7gi1t")]
+position = Vector2(105, 257)
+appliance_type = 3
+assembly_station_owner = 3
+
+[node name="Appliance9" parent="Appliances" instance=ExtResource("5_7gi1t")]
+position = Vector2(316, 266)
+appliance_type = 3
+assembly_station_owner = 4
 
 [node name="Customer" parent="." instance=ExtResource("7_oomkl")]
 position = Vector2(1118, 41)
