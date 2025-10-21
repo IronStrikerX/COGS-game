@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="FoodResource" load_steps=3 format=3 uid="uid://csp28ff46qpn8"]
 
-[ext_resource type="Script" uid="uid://ciwpxgba3x5hb" path="res://CookingSystem/CustomResource/FoodResource.gd" id="1_6y21y"]
+[ext_resource type="Script" uid="uid://ciwpxgba3x5hb" path="res://CustomResource/FoodResource.gd" id="1_6y21y"]
 [ext_resource type="Texture2D" uid="uid://b1qcblp8alfu" path="res://assets/happy_meal.png" id="2_q6sfo"]
 
 [resource]

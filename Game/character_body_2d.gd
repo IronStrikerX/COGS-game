@@ -10,6 +10,7 @@ const SPEED = 500.0
 var object: Area2D = null
 var nearby_appliances: Array[StaticBody2D] = []
 var current_appliance: StaticBody2D = null
+var current_customer: Area2D = null
 
 var selected_food: FoodResource = null
 
@@ -30,7 +31,7 @@ func _physics_process(_delta: float) -> void:
 	velocity = mov.normalized() * SPEED
 	move_and_slide()
 	if Input.is_action_just_pressed("debug"):
-		print(nearby_appliances, " ", current_appliance)
+		print(current_customer)
 		
 	if Input.is_action_just_pressed(prefix + "action"):
 		# Pick up food
@@ -56,6 +57,12 @@ func _physics_process(_delta: float) -> void:
 					selected_food = received
 					selected_food_sprite.texture = selected_food.texture
 					print("Picked up ", received.name, "from ", current_appliance.appliance_type)
+		
+		elif selected_food and current_customer:
+			if current_customer.has_method("receive_food"):
+				if current_customer.receive_food(selected_food):
+					selected_food = null
+					selected_food_sprite.texture = null
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("food"):
@@ -64,6 +71,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	elif area.get_parent().is_in_group("appliance"):
 		nearby_appliances.append(area.get_parent())
 		update_current_appliance()
+	
+	elif area.is_in_group("customer"):
+		current_customer = area
+		current_customer.set_highlight(true)
 		
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area == object:
@@ -72,6 +83,11 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.get_parent().is_in_group("appliance"):
 			nearby_appliances.erase(area.get_parent())
 			update_current_appliance()
+			
+	if area.is_in_group("customer"):
+		current_customer.set_highlight(false)
+		current_customer = null
+		
 
 func update_current_appliance() -> void:
 	var closest: StaticBody2D = null

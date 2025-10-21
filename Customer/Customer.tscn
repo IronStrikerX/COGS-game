@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://brk4vavxf2gem"]
+
+[ext_resource type="Script" uid="uid://ut6ap4u8fhnj" path="res://Customer/customer.gd" id="1_nlwrn"]
+[ext_resource type="FontFile" uid="uid://j1ikdqqghm6c" path="res://assets/m3x6.ttf" id="2_47pxv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2sbmf"]
+bg_color = Color(0.479694, 0.6092363, 0.7854069, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6pke"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ms251"]
+bg_color = Color(1.5161187e-06, 0.6532019, 5.7756904e-07, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlwrn"]
+size = Vector2(99, 99)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_nlwrn")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 102.0
+offset_bottom = 102.0
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_2sbmf")
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 30.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_47pxv")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/background = SubResource("StyleBoxFlat_k6pke")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ms251")
+max_value = 1.0
+value = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(49.5, 49.5)
+shape = SubResource("RectangleShape2D_nlwrn")
+
+[node name="FoodDesired" type="Sprite2D" parent="."]
+position = Vector2(50, 49)

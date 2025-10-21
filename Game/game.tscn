@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://mkj2qdb11517"]
+[gd_scene load_steps=11 format=3 uid="uid://mkj2qdb11517"]
 
 [ext_resource type="PackedScene" uid="uid://bip00f1fixjui" path="res://Game/object.tscn" id="1_qmv3x"]
 [ext_resource type="Resource" uid="uid://buwro5ha60tso" path="res://Food/meat.tres" id="2_oomkl"]
@@ -6,6 +6,9 @@
 [ext_resource type="Resource" uid="uid://dxlgojlvhfb4g" path="res://Food/potato.tres" id="4_kul4i"]
 [ext_resource type="PackedScene" uid="uid://brrm84npst7bp" path="res://CookingSystem/Appliances.tscn" id="5_7gi1t"]
 [ext_resource type="PackedScene" uid="uid://lmdupea46mc5" path="res://Game/character.tscn" id="6_fsxsm"]
+[ext_resource type="PackedScene" uid="uid://brk4vavxf2gem" path="res://Customer/Customer.tscn" id="7_oomkl"]
+[ext_resource type="Resource" uid="uid://ddlkxipeeb5wj" path="res://Customer/customer_demands.tres" id="8_buohc"]
+[ext_resource type="Resource" uid="uid://btnah8e5d3yet" path="res://CookingSystem/Recipes/Info/AllRecipes.tres" id="9_kul4i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2o6t"]
 
@@ -74,9 +77,26 @@ assembly_station_owner = 4
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="CharacterBody2D" parent="Characters" instance=ExtResource("6_fsxsm")]
+z_index = 1
 position = Vector2(237, 518)
 player_id = 1
 
 [node name="CharacterBody2D2" parent="Characters" instance=ExtResource("6_fsxsm")]
-position = Vector2(330, 525)
+z_index = 1
+position = Vector2(366, 522)
 player_id = 2
+
+[node name="Customer" parent="." instance=ExtResource("7_oomkl")]
+position = Vector2(1118, 41)
+possible_demands = ExtResource("8_buohc")
+all_recipes = ExtResource("9_kul4i")
+
+[node name="Customer2" parent="." instance=ExtResource("7_oomkl")]
+position = Vector2(1116, 288)
+possible_demands = ExtResource("8_buohc")
+all_recipes = ExtResource("9_kul4i")
+
+[node name="Customer3" parent="." instance=ExtResource("7_oomkl")]
+position = Vector2(1114, 536)
+possible_demands = ExtResource("8_buohc")
+all_recipes = ExtResource("9_kul4i")

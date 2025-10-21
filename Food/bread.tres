@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="FoodResource" load_steps=3 format=3 uid="uid://dxgfadj0ylg2"]
 
-[ext_resource type="Script" uid="uid://ciwpxgba3x5hb" path="res://CookingSystem/CustomResource/FoodResource.gd" id="1_w7yq4"]
+[ext_resource type="Script" uid="uid://ciwpxgba3x5hb" path="res://CustomResource/FoodResource.gd" id="1_w7yq4"]
 [ext_resource type="Texture2D" uid="uid://ctgd36arv1ifn" path="res://assets/bread.png" id="2_0e48n"]
 
 [resource]

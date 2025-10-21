@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="FoodResource" load_steps=3 format=3 uid="uid://cngxto3y8okea"]
 
-[ext_resource type="Script" uid="uid://ciwpxgba3x5hb" path="res://CookingSystem/CustomResource/FoodResource.gd" id="1_og33x"]
+[ext_resource type="Script" uid="uid://ciwpxgba3x5hb" path="res://CustomResource/FoodResource.gd" id="1_og33x"]
 [ext_resource type="Texture2D" uid="uid://jsgvmrl2dy2" path="res://assets/fries.png" id="2_cojfs"]
 
 [resource]

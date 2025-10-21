@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="CookingRecipe" load_steps=6 format=3 uid="uid://ddmmobr1h2wum"]
 
 [ext_resource type="Resource" uid="uid://mu1cxr2d4g84" path="res://Food/hamburger.tres" id="1_fjroc"]
-[ext_resource type="Script" uid="uid://ciwpxgba3x5hb" path="res://CookingSystem/CustomResource/FoodResource.gd" id="2_78qx4"]
+[ext_resource type="Script" uid="uid://ciwpxgba3x5hb" path="res://CustomResource/FoodResource.gd" id="2_78qx4"]
 [ext_resource type="Resource" uid="uid://dxgfadj0ylg2" path="res://Food/bread.tres" id="3_wpjxw"]
 [ext_resource type="Resource" uid="uid://ooncxnqobhfd" path="res://Food/cooked_meat.tres" id="4_b0nwq"]
-[ext_resource type="Script" uid="uid://h3ab05hfir7h" path="res://CookingSystem/CustomResource/CookingRecipe.gd" id="5_8q1we"]
+[ext_resource type="Script" uid="uid://h3ab05hfir7h" path="res://CustomResource/CookingRecipe.gd" id="5_8q1we"]
 
 [resource]
 script = ExtResource("5_8q1we")

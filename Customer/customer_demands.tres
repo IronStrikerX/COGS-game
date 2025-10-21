@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CustomerDemands" load_steps=11 format=3 uid="uid://ddlkxipeeb5wj"]
+
+[ext_resource type="Script" uid="uid://ciwpxgba3x5hb" path="res://CustomResource/FoodResource.gd" id="1_28jpx"]
+[ext_resource type="Script" uid="uid://bvga250fvjjqx" path="res://CustomResource/CustomerDemands.gd" id="2_8q07v"]
+[ext_resource type="Resource" uid="uid://dxgfadj0ylg2" path="res://Food/bread.tres" id="2_dyosg"]
+[ext_resource type="Resource" uid="uid://cngxto3y8okea" path="res://Food/fries.tres" id="3_wq3it"]
+[ext_resource type="Resource" uid="uid://mu1cxr2d4g84" path="res://Food/hamburger.tres" id="4_52v2e"]
+[ext_resource type="Resource" uid="uid://dxlgojlvhfb4g" path="res://Food/potato.tres" id="4_wq3it"]
+[ext_resource type="Resource" uid="uid://csp28ff46qpn8" path="res://Food/happy_meal.tres" id="5_bug72"]
+[ext_resource type="Resource" uid="uid://ooncxnqobhfd" path="res://Food/cooked_meat.tres" id="6_kri8f"]
+[ext_resource type="Resource" uid="uid://bea7llhu0xsbn" path="res://Food/baked_potato.tres" id="7_k56ix"]
+[ext_resource type="Resource" uid="uid://b71l101ss70ud" path="res://Food/stuff_baked_potato.tres" id="8_2tesw"]
+
+[resource]
+script = ExtResource("2_8q07v")
+meals = Array[ExtResource("1_28jpx")]([ExtResource("2_dyosg"), ExtResource("3_wq3it"), ExtResource("4_wq3it"), ExtResource("4_52v2e"), ExtResource("5_bug72"), ExtResource("6_kri8f"), ExtResource("7_k56ix"), ExtResource("8_2tesw")])
+metadata/_custom_type_script = "uid://bvga250fvjjqx"

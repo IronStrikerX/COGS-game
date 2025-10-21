@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="FoodResource" load_steps=3 format=3 uid="uid://bea7llhu0xsbn"]
 
-[ext_resource type="Script" uid="uid://ciwpxgba3x5hb" path="res://CookingSystem/CustomResource/FoodResource.gd" id="1_m3aoe"]
+[ext_resource type="Script" uid="uid://ciwpxgba3x5hb" path="res://CustomResource/FoodResource.gd" id="1_m3aoe"]
 [ext_resource type="Texture2D" uid="uid://b70wujaknbby1" path="res://assets/baked_potato.png" id="2_m3aoe"]
 
 [resource]
