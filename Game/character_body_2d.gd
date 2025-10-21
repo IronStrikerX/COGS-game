@@ -43,12 +43,23 @@ func _physics_process(_delta: float) -> void:
 		elif selected_food and current_appliance:
 			if current_appliance.has_method("receive_food"):
 				if current_appliance.receive_food(selected_food, player_id):
-					#player will drop selected food only when 1. appliance is empty 2. player can cook with the 2 food
+					#player will drop selected food only when 1. appliance is empty 2. player can cook with the 2 foods
 					selected_food = null
 					selected_food_sprite.texture = null
+				elif current_appliance.appliance_type in [CookingRecipe.ApplianceType.COUNTERTOP, CookingRecipe.ApplianceType.ASSEMBLY_STATION]:
+					# Could not cook, attempt swap if appliance has food to give on countertrop or assemblys tation
+					var appliance_food = current_appliance.give_food(player_id)
+					if appliance_food:
+						if current_appliance.receive_food(selected_food, player_id):
+							# Swap successful
+							selected_food = appliance_food
+							if selected_food:
+								selected_food_sprite.texture = selected_food.texture
+							else:
+								selected_food_sprite.texture = null
 			else:
 				print("Station can't receive food")
-		
+									
 		#pick up food at station
 		elif not selected_food and current_appliance:
 			if current_appliance.has_method("give_food"):

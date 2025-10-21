@@ -20,7 +20,7 @@ bg_color = Color(0.4169775, 0.28263867, 0.17518583, 1)
 size = Vector2(96, 95)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2g1o"]
-size = Vector2(119, 138)
+size = Vector2(105, 108)
 
 [sub_resource type="Curve" id="Curve_dmv7j"]
 _limits = [0.0, 1.0058082, 0.0, 1.0]
@@ -28,7 +28,7 @@ _data = [Vector2(0.04522613, 0.516547), 0.0, 0.0, 0, 0, Vector2(0.9874371, 1.005
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_a5ags"]
-colors = PackedColorArray(0.583047, 0.583047, 0.5830469, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0.27058825, 0, 0, 1, 1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46frq"]
 bg_color = Color(0.11858133, 0.11858139, 0.11858136, 1)
@@ -108,10 +108,9 @@ position = Vector2(0, -8.5)
 shape = SubResource("RectangleShape2D_a8k81")
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1.5, -1)
+position = Vector2(-0.5, -9)
 shape = SubResource("RectangleShape2D_a2g1o")
 
 [node name="SelectedFood" type="Sprite2D" parent="."]
@@ -119,12 +118,13 @@ unique_name_in_owner = true
 
 [node name="SmokeParticle" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 3
+amount = 25
 lifetime = 1.2
 randomness = 0.5
 lifetime_randomness = 0.2
 emission_shape = 1
 emission_sphere_radius = 20.0
+particle_flag_align_y = true
 direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, -100)

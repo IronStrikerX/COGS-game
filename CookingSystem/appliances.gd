@@ -136,10 +136,10 @@ func receive_food(recieved_food: FoodResource, player_id: int) -> bool:
 			selected_food = recieved_food
 			selected_food_sprite.texture = selected_food.texture
 			return true
-
+			
 	# appliances can only have one selected food
 	else:
-		if not selected_food:
+		if not is_cooking:
 			current_player_using = player_id
 			var processed_food = process_food(recieved_food)
 			# checks if this appliance plus recieved food can create something

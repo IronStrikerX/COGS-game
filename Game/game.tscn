@@ -4,10 +4,10 @@
 [ext_resource type="Resource" uid="uid://buwro5ha60tso" path="res://Food/meat.tres" id="2_oomkl"]
 [ext_resource type="Resource" uid="uid://dxgfadj0ylg2" path="res://Food/bread.tres" id="3_buohc"]
 [ext_resource type="Resource" uid="uid://dxlgojlvhfb4g" path="res://Food/potato.tres" id="4_kul4i"]
-[ext_resource type="PackedScene" uid="uid://brrm84npst7bp" path="res://CookingSystem/Appliances.tscn" id="5_7gi1t"]
 [ext_resource type="PackedScene" uid="uid://lmdupea46mc5" path="res://Game/character.tscn" id="6_fsxsm"]
 [ext_resource type="PackedScene" uid="uid://brk4vavxf2gem" path="res://Customer/Customer.tscn" id="7_oomkl"]
 [ext_resource type="Resource" uid="uid://ddlkxipeeb5wj" path="res://Customer/customer_demands.tres" id="8_buohc"]
+[ext_resource type="PackedScene" uid="uid://bghretien1axb" path="res://Game/spawner.tscn" id="9_7gi1t"]
 [ext_resource type="Resource" uid="uid://btnah8e5d3yet" path="res://CookingSystem/Recipes/Info/AllRecipes.tres" id="9_kul4i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2o6t"]
@@ -22,67 +22,28 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_e2o6t")
 [node name="Food" type="Node2D" parent="."]
 
 [node name="food" parent="Food" instance=ExtResource("1_qmv3x")]
-position = Vector2(477, 517)
+position = Vector2(831, 87)
 food = ExtResource("2_oomkl")
 
 [node name="food2" parent="Food" instance=ExtResource("1_qmv3x")]
-position = Vector2(470, 408)
+position = Vector2(871, 558)
 food = ExtResource("3_buohc")
 
 [node name="food3" parent="Food" instance=ExtResource("1_qmv3x")]
-position = Vector2(466, 300)
+position = Vector2(830, 295)
 food = ExtResource("4_kul4i")
 
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="CharacterBody2D" parent="Characters" instance=ExtResource("6_fsxsm")]
-position = Vector2(110, 384)
+z_index = 12
+position = Vector2(875, 424)
 player_id = 1
 
 [node name="CharacterBody2D2" parent="Characters" instance=ExtResource("6_fsxsm")]
-position = Vector2(681, 198)
+z_index = 12
+position = Vector2(887, 184)
 player_id = 2
-
-[node name="Appliances" type="Node2D" parent="."]
-
-[node name="Appliance2" parent="Appliances" instance=ExtResource("5_7gi1t")]
-position = Vector2(204, 497)
-appliance_type = 4
-
-[node name="Appliance5" parent="Appliances" instance=ExtResource("5_7gi1t")]
-position = Vector2(105, 59)
-appliance_type = 3
-assembly_station_owner = 1
-
-[node name="Appliance" parent="Appliances" instance=ExtResource("5_7gi1t")]
-position = Vector2(316, 67)
-appliance_type = 1
-
-[node name="Appliance3" parent="Appliances" instance=ExtResource("5_7gi1t")]
-position = Vector2(316, 166)
-
-[node name="Appliance4" parent="Appliances" instance=ExtResource("5_7gi1t")]
-position = Vector2(106, 497)
-appliance_type = 2
-
-[node name="Appliance6" parent="Appliances" instance=ExtResource("5_7gi1t")]
-position = Vector2(303, 497)
-appliance_type = 5
-
-[node name="Appliance7" parent="Appliances" instance=ExtResource("5_7gi1t")]
-position = Vector2(105, 158)
-appliance_type = 3
-assembly_station_owner = 2
-
-[node name="Appliance8" parent="Appliances" instance=ExtResource("5_7gi1t")]
-position = Vector2(105, 257)
-appliance_type = 3
-assembly_station_owner = 3
-
-[node name="Appliance9" parent="Appliances" instance=ExtResource("5_7gi1t")]
-position = Vector2(316, 266)
-appliance_type = 3
-assembly_station_owner = 4
 
 [node name="Customer" parent="." instance=ExtResource("7_oomkl")]
 position = Vector2(1118, 41)
@@ -98,3 +59,13 @@ all_recipes = ExtResource("9_kul4i")
 position = Vector2(1114, 536)
 possible_demands = ExtResource("8_buohc")
 all_recipes = ExtResource("9_kul4i")
+
+[node name="Spawner" parent="." instance=ExtResource("9_7gi1t")]
+list_of_appliances = {
+"Assembly Station": 2,
+"Countertop": 4,
+"Deep Fry Station": 3,
+"Oven": 3,
+"Stove": 3,
+"Trash Bin": 2
+}
