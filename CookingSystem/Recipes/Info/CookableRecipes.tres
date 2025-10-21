@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AllRecipes" load_steps=6 format=3 uid="uid://bx0qv0eh20yw2"]
+
+[ext_resource type="Script" uid="uid://h3ab05hfir7h" path="res://CookingSystem/CustomResource/CookingRecipe.gd" id="1_337q3"]
+[ext_resource type="Resource" uid="uid://ddmmobr1h2wum" path="res://CookingSystem/Recipes/Cookable/hamburger.tres" id="2_ysx4p"]
+[ext_resource type="Resource" uid="uid://8ns5am6tppsh" path="res://CookingSystem/Recipes/Cookable/happy_meal.tres" id="3_ps7i3"]
+[ext_resource type="Script" uid="uid://rq6cbnou45kv" path="res://CookingSystem/CustomResource/AllRecipes.gd" id="4_px30f"]
+[ext_resource type="Resource" uid="uid://cp02ehbtbgdid" path="res://CookingSystem/Recipes/Cookable/stuffed_baked_potato.tres" id="4_ysx4p"]
+
+[resource]
+script = ExtResource("4_px30f")
+recipes = Array[ExtResource("1_337q3")]([ExtResource("2_ysx4p"), ExtResource("3_ps7i3"), ExtResource("4_ysx4p")])
+metadata/_custom_type_script = "uid://rq6cbnou45kv"

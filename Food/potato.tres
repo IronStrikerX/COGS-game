@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FoodResource" load_steps=3 format=3 uid="uid://dxlgojlvhfb4g"]
+
+[ext_resource type="Script" uid="uid://ciwpxgba3x5hb" path="res://CookingSystem/CustomResource/FoodResource.gd" id="1_wdyhi"]
+[ext_resource type="Texture2D" uid="uid://dirjhctavoly7" path="res://assets/potato.png" id="2_vuqyw"]
+
+[resource]
+script = ExtResource("1_wdyhi")
+name = "Potato"
+texture = ExtResource("2_vuqyw")
+metadata/_custom_type_script = "uid://ciwpxgba3x5hb"

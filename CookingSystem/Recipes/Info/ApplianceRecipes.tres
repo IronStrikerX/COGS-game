@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AllRecipes" load_steps=6 format=3 uid="uid://bj0t716heki1a"]
+
+[ext_resource type="Script" uid="uid://h3ab05hfir7h" path="res://CookingSystem/CustomResource/CookingRecipe.gd" id="1_kc4i8"]
+[ext_resource type="Resource" uid="uid://cekmms8nmhwa6" path="res://CookingSystem/Recipes/Processed/cooked_meat.tres" id="2_3pyar"]
+[ext_resource type="Resource" uid="uid://cysw8enlj12fi" path="res://CookingSystem/Recipes/Processed/fries.tres" id="3_3pyar"]
+[ext_resource type="Script" uid="uid://rq6cbnou45kv" path="res://CookingSystem/CustomResource/AllRecipes.gd" id="3_5vxgk"]
+[ext_resource type="Resource" uid="uid://blee7vrhfc02u" path="res://CookingSystem/Recipes/Processed/baked_potato.tres" id="4_5vxgk"]
+
+[resource]
+script = ExtResource("3_5vxgk")
+recipes = Array[ExtResource("1_kc4i8")]([ExtResource("2_3pyar"), ExtResource("3_3pyar"), ExtResource("4_5vxgk")])
+metadata/_custom_type_script = "uid://rq6cbnou45kv"

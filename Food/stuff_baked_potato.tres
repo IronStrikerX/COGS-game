@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FoodResource" load_steps=3 format=3 uid="uid://b71l101ss70ud"]
+
+[ext_resource type="Script" uid="uid://ciwpxgba3x5hb" path="res://CookingSystem/CustomResource/FoodResource.gd" id="1_nm00l"]
+[ext_resource type="Texture2D" uid="uid://0s1mx64kg0q" path="res://assets/stuffed_baked_potato.png" id="2_3lnl5"]
+
+[resource]
+script = ExtResource("1_nm00l")
+name = "Stuffed Baked Potato"
+texture = ExtResource("2_3lnl5")
+metadata/_custom_type_script = "uid://ciwpxgba3x5hb"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FoodResource" load_steps=3 format=3 uid="uid://mu1cxr2d4g84"]
+
+[ext_resource type="Script" uid="uid://ciwpxgba3x5hb" path="res://CookingSystem/CustomResource/FoodResource.gd" id="1_74du7"]
+[ext_resource type="Texture2D" uid="uid://co53wmvlqg0od" path="res://assets/hamburger.png" id="2_gwfc1"]
+
+[resource]
+script = ExtResource("1_74du7")
+name = "Hamburger"
+texture = ExtResource("2_gwfc1")
+metadata/_custom_type_script = "uid://ciwpxgba3x5hb"

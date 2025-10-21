@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CookingRecipe" load_steps=6 format=3 uid="uid://8ns5am6tppsh"]
+
+[ext_resource type="Resource" uid="uid://csp28ff46qpn8" path="res://Food/happy_meal.tres" id="1_i8bg1"]
+[ext_resource type="Script" uid="uid://ciwpxgba3x5hb" path="res://CookingSystem/CustomResource/FoodResource.gd" id="1_ko44f"]
+[ext_resource type="Script" uid="uid://h3ab05hfir7h" path="res://CookingSystem/CustomResource/CookingRecipe.gd" id="2_tlndw"]
+[ext_resource type="Resource" uid="uid://mu1cxr2d4g84" path="res://Food/hamburger.tres" id="3_hbhdv"]
+[ext_resource type="Resource" uid="uid://cngxto3y8okea" path="res://Food/fries.tres" id="4_ucrjy"]
+
+[resource]
+script = ExtResource("2_tlndw")
+item = ExtResource("1_i8bg1")
+requirement = Array[ExtResource("1_ko44f")]([ExtResource("3_hbhdv"), ExtResource("4_ucrjy")])
+appliance = 3
+time_required = 2.0
+metadata/_custom_type_script = "uid://h3ab05hfir7h"
