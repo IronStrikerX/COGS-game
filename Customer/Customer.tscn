@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://brk4vavxf2gem"]
+[gd_scene load_steps=9 format=3 uid="uid://brk4vavxf2gem"]
 
 [ext_resource type="Script" uid="uid://ut6ap4u8fhnj" path="res://Customer/customer.gd" id="1_nlwrn"]
 [ext_resource type="FontFile" uid="uid://j1ikdqqghm6c" path="res://assets/m3x6.ttf" id="2_47pxv"]
@@ -14,6 +14,16 @@ bg_color = Color(1.5161187e-06, 0.6532019, 5.7756904e-07, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nlwrn"]
 size = Vector2(99, 99)
+
+[sub_resource type="Curve" id="Curve_47pxv"]
+_limits = [0.019009233, 2.0, 0.0, 1.3819243]
+_data = [Vector2(0.040289335, 0.6797199), 0.0, 0.0, 0, 0, Vector2(0.6768608, 0.019009233), 0.0, 0.0, 0, 0, Vector2(1.3537217, 1.3917811), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_k6pke"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5457413)
+colors = PackedColorArray(0.3291585, 0.32915837, 0.3291583, 1, 1, 1, 1, 1)
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_nlwrn")
@@ -48,3 +58,25 @@ shape = SubResource("RectangleShape2D_nlwrn")
 
 [node name="FoodDesired" type="Sprite2D" parent="."]
 position = Vector2(50, 49)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(50, 50)
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 1.0
+randomness = 0.2
+lifetime_randomness = 0.45
+emission_shape = 1
+emission_sphere_radius = 9.89
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 100.0
+scale_amount_min = 3.0
+scale_amount_max = 6.0
+split_scale = true
+scale_curve_x = null
+scale_curve_y = SubResource("Curve_47pxv")
+color = Color(0, 1, 0, 1)
+color_ramp = SubResource("Gradient_k6pke")

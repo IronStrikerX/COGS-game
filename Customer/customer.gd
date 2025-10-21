@@ -6,6 +6,7 @@ extends Area2D
 @onready var food_desired: Sprite2D = $FoodDesired
 @onready var panel: Panel = $Panel
 @onready var progress_bar: ProgressBar = $Panel/ProgressBar
+@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 
 var required_food: FoodResource
 
@@ -20,6 +21,9 @@ func _ready() -> void:
 
 func receive_food(recieved_food: FoodResource) -> bool:
 	if recieved_food == required_food:
+		print(num_recursion * 2)
+		cpu_particles_2d.amount = 50 * num_recursion
+		cpu_particles_2d.emitting = true
 		new_demand()
 		return true
 	return false

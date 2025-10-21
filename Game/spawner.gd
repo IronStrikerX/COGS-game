@@ -3,7 +3,7 @@ const APPLIANCES = preload("uid://brrm84npst7bp")
 
 const WIDTH := 8
 const HEIGHT := 7
-const CELL_SIZE := Vector2(98,98)
+const CELL_SIZE := Vector2(100  ,100)
 
 var all_cells = []
 
