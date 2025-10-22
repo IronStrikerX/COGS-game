@@ -63,7 +63,7 @@ func spawn_map(grid):
 		var new_appliance = APPLIANCES.instantiate()
 		var appliance_type = appliances.pick_random()
 		appliances.erase(appliance_type)
-		new_appliance.position = world_pos
+		new_appliance.position = world_pos + Vector2(200, 0)
 		new_appliance.z_index = int(location.x + location.y)
 		
 		match appliance_type:
@@ -95,7 +95,6 @@ func generate_map():
 		grid.append(row)
 		
 	@warning_ignore("integer_division")
-	grid[HEIGHT - 1][WIDTH / 2] = 2
 	
 	# Flatten appliance counts
 	var appliance_cells = 0
