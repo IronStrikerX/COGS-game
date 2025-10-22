@@ -74,6 +74,11 @@ func _physics_process(_delta: float) -> void:
 				if current_customer.receive_food(selected_food):
 					selected_food = null
 					selected_food_sprite.texture = null
+		
+	if global_position.y > get_viewport_rect().size.y:
+		global_position.y = 0
+	elif global_position.y < 0:
+		global_position.y = get_viewport_rect().size.y
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("food"):

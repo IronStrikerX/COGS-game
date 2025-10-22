@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://mkj2qdb11517"]
+[gd_scene load_steps=12 format=3 uid="uid://mkj2qdb11517"]
 
 [ext_resource type="PackedScene" uid="uid://bip00f1fixjui" path="res://Game/object.tscn" id="1_qmv3x"]
 [ext_resource type="Resource" uid="uid://buwro5ha60tso" path="res://Food/meat.tres" id="2_oomkl"]
@@ -12,6 +12,9 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2o6t"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kul4i"]
+bg_color = Color(0.15487596, 0.154876, 0.1548759, 1)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Panel" type="Panel" parent="."]
@@ -19,53 +22,64 @@ offset_right = 1280.0
 offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_e2o6t")
 
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 300.0
+offset_top = -2.0
+offset_right = 1000.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kul4i")
+
 [node name="Food" type="Node2D" parent="."]
 
 [node name="food" parent="Food" instance=ExtResource("1_qmv3x")]
-position = Vector2(831, 87)
+position = Vector2(843, 34)
 food = ExtResource("2_oomkl")
 
 [node name="food2" parent="Food" instance=ExtResource("1_qmv3x")]
-position = Vector2(871, 558)
+position = Vector2(655, 37)
 food = ExtResource("3_buohc")
 
 [node name="food3" parent="Food" instance=ExtResource("1_qmv3x")]
-position = Vector2(830, 295)
+position = Vector2(741, 34)
 food = ExtResource("4_kul4i")
 
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="CharacterBody2D" parent="Characters" instance=ExtResource("6_fsxsm")]
-z_index = 12
-position = Vector2(875, 424)
+z_index = 99
+position = Vector2(1183, 456)
 player_id = 1
 
 [node name="CharacterBody2D2" parent="Characters" instance=ExtResource("6_fsxsm")]
-z_index = 12
-position = Vector2(887, 184)
+z_index = 99
+position = Vector2(1175, 221)
 player_id = 2
 
-[node name="Customer" parent="." instance=ExtResource("7_oomkl")]
+[node name="Customers" type="Node2D" parent="."]
+
+[node name="Customer" parent="Customers" instance=ExtResource("7_oomkl")]
 position = Vector2(1118, 41)
 possible_demands = ExtResource("8_buohc")
 all_recipes = ExtResource("9_kul4i")
 
-[node name="Customer2" parent="." instance=ExtResource("7_oomkl")]
+[node name="Customer2" parent="Customers" instance=ExtResource("7_oomkl")]
 position = Vector2(1116, 288)
 possible_demands = ExtResource("8_buohc")
 all_recipes = ExtResource("9_kul4i")
 
-[node name="Customer3" parent="." instance=ExtResource("7_oomkl")]
+[node name="Customer3" parent="Customers" instance=ExtResource("7_oomkl")]
 position = Vector2(1114, 536)
 possible_demands = ExtResource("8_buohc")
 all_recipes = ExtResource("9_kul4i")
 
 [node name="Spawner" parent="." instance=ExtResource("9_7gi1t")]
+WIDTH = 7
 list_of_appliances = {
-"Assembly Station": 2,
-"Countertop": 4,
-"Deep Fry Station": 3,
-"Oven": 3,
-"Stove": 3,
+"Assembly Station": 3,
+"Countertop": 2,
+"Deep Fry Station": 2,
+"Oven": 2,
+"Stove": 2,
 "Trash Bin": 2
 }
