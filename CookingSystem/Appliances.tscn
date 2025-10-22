@@ -31,7 +31,7 @@ point_count = 2
 colors = PackedColorArray(0.27058825, 0, 0, 1, 1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46frq"]
-bg_color = Color(0.11858133, 0.11858139, 0.11858136, 1)
+bg_color = Color(0.033853326, 0.033853263, 0.033853274, 1)
 
 [node name="Appliance" type="StaticBody2D"]
 script = ExtResource("1_a8k81")
@@ -51,6 +51,7 @@ offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="ApplianceLabel" type="Label" parent="Sprite2D/Control"]
 layout_mode = 1
@@ -70,6 +71,7 @@ theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="ProgressBar" type="ProgressBar" parent="Sprite2D/Control"]
 layout_mode = 1
@@ -85,6 +87,7 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/background = SubResource("StyleBoxFlat_dmv7j")
 theme_override_styles/fill = SubResource("StyleBoxFlat_a5ags")
 max_value = 1.0
+metadata/_edit_use_anchors_ = true
 
 [node name="SpoilProgressBar" type="ProgressBar" parent="Sprite2D/Control"]
 layout_mode = 1
@@ -101,6 +104,7 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/background = SubResource("StyleBoxFlat_1ra12")
 theme_override_styles/fill = SubResource("StyleBoxFlat_t7gxx")
 max_value = 1.0
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
