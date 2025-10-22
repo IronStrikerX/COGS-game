@@ -30,9 +30,7 @@ func _physics_process(_delta: float) -> void:
 	
 	velocity = mov.normalized() * SPEED
 	move_and_slide()
-	if Input.is_action_just_pressed("debug"):
-		print(current_customer)
-		
+
 	if Input.is_action_just_pressed(prefix + "action"):
 		# Pick up food
 		if not selected_food and object:
