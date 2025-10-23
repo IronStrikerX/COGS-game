@@ -60,8 +60,6 @@ max_value = 1.0
 value = 0.99
 show_percentage = false
 
-[node name="DropTimer" type="Timer" parent="."]
-
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

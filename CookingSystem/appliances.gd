@@ -15,6 +15,7 @@ var selected_food: FoodResource
 var available_process_recipes: AllRecipes = preload("uid://bj0t716heki1a")
 var available_cookable_recipes: AllRecipes = preload("uid://bx0qv0eh20yw2")
 
+var is_sabotaged: bool = false
 var is_cooking: bool = false
 var is_spoiling: bool = false
 var process_timer: float = 0.0
@@ -94,10 +95,14 @@ func reset_spoil_bar():
 	is_spoiling = false
 	spoil_bar.visible = false
 	spoil_bar.value = 0
-	smoke_particle.emitting = false
+	if not is_sabotaged:
+		smoke_particle.emitting = false
 
 # make sure player can give food to appliance
 func receive_food(recieved_food: FoodResource, player_id: int) -> bool:
+	if is_sabotaged:
+		return false
+	
 	# trash bin
 	if appliance_type ==  CookingRecipe.ApplianceType.TRASH_BIN:
 		return true
@@ -114,7 +119,7 @@ func receive_food(recieved_food: FoodResource, player_id: int) -> bool:
 	spoil_bar.add_theme_stylebox_override("background", bg_box)
 	
 	# assembly station or countertop
-	if appliance_type == CookingRecipe.ApplianceType.ASSEMBLY_STATION or appliance_type == CookingRecipe.ApplianceType.COUNTERTOP:
+	if appliance_type in [CookingRecipe.ApplianceType.ASSEMBLY_STATION, CookingRecipe.ApplianceType.COUNTERTOP]:
 		# if appliance is assembly station, it makes sure the player is using theirs
 		if appliance_type == CookingRecipe.ApplianceType.ASSEMBLY_STATION: 
 			if assembly_station_owner != player_id:
@@ -169,6 +174,15 @@ func give_food(player_id: int) -> FoodResource:
 		return food_to_give
 	return null
 
+func sabotage_toggle(player_id: int):
+	if is_sabotaged:
+		smoke_particle.emitting = false
+		is_sabotaged = false
+	else:
+		is_sabotaged = true
+		smoke_particle.amount = 50
+		smoke_particle.emitting = true
+
 func set_highlight(x: bool):
 	if appliance_type == CookingRecipe.ApplianceType.ASSEMBLY_STATION:
 		sprite_2d.modulate = Color(0.521, 0.533, 0.521, 1.0) if x else player_color[assembly_station_owner].lightened(0.65)
@@ -199,7 +213,6 @@ func process_food(recieved_food: FoodResource) -> FoodResource:
 
 func cookable_food(recieved_food: FoodResource) -> FoodResource:
 	if not selected_food or not recieved_food:
-		print("no selected food or recieved food")
 		return null
 	
 	for recipe in available_cookable_recipes.recipes:
