@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://lmdupea46mc5"]
+[gd_scene load_steps=7 format=3 uid="uid://lmdupea46mc5"]
 
 [ext_resource type="Script" uid="uid://cy2t47jro1l6d" path="res://Game/character_body_2d.gd" id="1_pjt0s"]
 [ext_resource type="Texture2D" uid="uid://ua4v1jbf0f11" path="res://assets/player1.png" id="2_wa5vi"]
@@ -8,6 +8,22 @@ radius = 31.016125
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_feb5d"]
 radius = 42.107006
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76skn"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.3913487, 0.14755961, 0.147823, 1)
+border_blend = true
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x570n"]
+bg_color = Color(0.8668296, 0.86682963, 0.86682945, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 motion_mode = 1
@@ -27,6 +43,24 @@ shape = SubResource("CircleShape2D_feb5d")
 
 [node name="SelectedFood" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+
+[node name="DropBar" type="ProgressBar" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -57.0
+offset_right = 17.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_76skn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_x570n")
+max_value = 1.0
+value = 0.99
+show_percentage = false
+
+[node name="DropTimer" type="Timer" parent="."]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
