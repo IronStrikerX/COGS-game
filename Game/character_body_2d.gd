@@ -20,8 +20,6 @@ var holding: bool = false
 var hold_time: float = 0.0
 var hold_buffer: float = 0.2
 
-var try_swap_already := false
-
 func _ready():
 	match player_id:
 		1: 
@@ -32,20 +30,17 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	var prefix = "p%d_" % player_id
 	
-	# --- Movement ---
 	var x_mov = Input.get_action_strength(prefix + "right") - Input.get_action_strength(prefix + "left")
 	var y_mov = Input.get_action_strength(prefix + "down") - Input.get_action_strength(prefix + "up")
 	var mov = Vector2(x_mov, y_mov)
 	velocity = mov.normalized() * SPEED
 	move_and_slide()
 	
-	# --- Action Key ---
 	if Input.is_action_just_pressed(prefix + "action"):
-		# Single tap behavior: try instant swap/pickup
+		# Single tap 
 		if not selected_food:
 			try_pickup()
 		elif selected_food:
-			# Attempt instant swap if appliance or customer supports it
 			if current_appliance and current_appliance.has_method("receive_food"):
 				if current_appliance.appliance_type in [CookingRecipe.ApplianceType.COUNTERTOP, CookingRecipe.ApplianceType.ASSEMBLY_STATION]:
 					# Could not cook, attempt swap if appliance has food to give on countertrop or assemblys tation
@@ -71,7 +66,6 @@ func _physics_process(delta: float) -> void:
 		hold_time = 0
 		
 	elif Input.is_action_pressed(prefix + "action") and holding:
-		#
 		hold_time += delta
 		if hold_time >= hold_buffer and selected_food:
 			drop_bar.visible = true
@@ -96,15 +90,12 @@ func _physics_process(delta: float) -> void:
 				drop_bar.visible = false
 
 	elif Input.is_action_just_released(prefix + "action"):
-		# Reset hold state if released early
 		holding = false
 		hold_time = 0
 		drop_bar.value = 0
 		drop_bar.visible = false
 
-# --- Pickup Logic ---
 func try_pickup():
-	# Pick up from object in world
 	if object:
 		selected_food = object.get_parent().food
 		selected_food_sprite.texture = selected_food.texture

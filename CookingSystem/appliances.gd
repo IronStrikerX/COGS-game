@@ -25,7 +25,7 @@ var player_color = {
 	1: Color(0.0, 0.0, 1.0, 1.0),
 	2: Color(0.0, 1.0, 0.0, 1.0),
 	3: Color(1.0, 0.0, 0.0, 1.0),
-	4: Color(0.447, 0.002, 0.976, 1.0)
+	4: Color(0.447, 0.0, 1.0, 1.0)
 }
 
 var current_player_using: int

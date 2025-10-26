@@ -11,8 +11,6 @@ radius = 42.107006
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76skn"]
 bg_color = Color(0, 0, 0, 1)
-border_color = Color(0.3913487, 0.14755961, 0.147823, 1)
-border_blend = true
 corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
@@ -45,6 +43,7 @@ shape = SubResource("CircleShape2D_feb5d")
 unique_name_in_owner = true
 
 [node name="DropBar" type="ProgressBar" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

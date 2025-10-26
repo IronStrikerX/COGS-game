@@ -74,13 +74,13 @@ possible_demands = ExtResource("8_buohc")
 all_recipes = ExtResource("9_kul4i")
 
 [node name="Spawner" parent="." instance=ExtResource("9_7gi1t")]
-WIDTH = 5
+WIDTH = 8
 HEIGHT = 7
 list_of_appliances = {
-"Assembly Station": 2,
-"Countertop": 2,
-"Deep Fry Station": 1,
-"Oven": 1,
-"Stove": 1,
-"Trash Bin": 2
+"Assembly Station": 4,
+"Countertop": 4,
+"Deep Fry Station": 4,
+"Oven": 4,
+"Stove": 4,
+"Trash Bin": 3
 }

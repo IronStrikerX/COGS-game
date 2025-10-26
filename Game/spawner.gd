@@ -39,9 +39,7 @@ func print_grid(grid):
 		for x in range(WIDTH):
 			row += str(grid[y][x]) + " "
 		print(row)
-	
-	
-		
+
 func spawn_map(grid):
 	var appliances = []
 	
@@ -94,8 +92,6 @@ func generate_map():
 			row.append(0)
 		grid.append(row)
 		
-	@warning_ignore("integer_division")
-	
 	# Flatten appliance counts
 	var appliance_cells = 0
 	for appliance in list_of_appliances:
@@ -122,18 +118,16 @@ func generate_map():
 					free_neighbors += 1
 		if free_neighbors == 0:
 			continue  # skip, would block access
-		
-		# Place appliance
+	
 		grid[cell.y][cell.x] = 1
 		placed += 1
 	
-	# Optional: BFS check to ensure all appliances are reachable
+	# BFS check to ensure all appliances are reachable
 	if not check_all_accessible(grid):
 		return generate_map()  # regenerate if blocked
 	
 	return grid
 
-# BFS to ensure all appliances are reachable from a starting empty cell
 func check_all_accessible(grid):
 	# Collect all empty cells
 	var empty_cells = []
@@ -185,7 +179,7 @@ func check_all_accessible(grid):
 			if not all_accessible:
 				break
 		
-		# If BFS from this start reached all appliances, return true immediately
+		# if BFS from this start reached all appliances, return true immediately
 		if all_accessible:
 			return true
 		
