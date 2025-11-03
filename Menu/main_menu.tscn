@@ -1,0 +1,413 @@
+[gd_scene load_steps=5 format=3 uid="uid://6lguqc7ecgax"]
+
+[ext_resource type="Script" uid="uid://ct43r1kvy2wby" path="res://Menu/main_menu.gd" id="1_yltbk"]
+[ext_resource type="PackedScene" uid="uid://dbmq8hnm207ux" path="res://Menu/CharacterSelect/character_panel_menu.tscn" id="2_ci1se"]
+[ext_resource type="Texture2D" uid="uid://dvmogim0yh2ku" path="res://assets/RedGuy.png" id="3_rw3mj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0y0oi"]
+bg_color = Color(0.6, 0.7137255, 0.48235294, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yltbk")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0y0oi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 33
+
+[node name="Spacer" type="Control" parent="Panel/HBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="Panel/HBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Play"
+
+[node name="RecipesButton" type="Button" parent="Panel/HBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Recipes
+"
+
+[node name="OptionsButton" type="Button" parent="Panel/HBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Options
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="CharacterSelect" type="Panel" parent="Panel/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/MarginContainer/CharacterSelect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/MarginContainer/CharacterSelect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Characters"
+horizontal_alignment = 1
+
+[node name="CharacterContainer" type="ScrollContainer" parent="Panel/HBoxContainer/MarginContainer/CharacterSelect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 260)
+layout_mode = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/MarginContainer/CharacterSelect/VBoxContainer/CharacterContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="CharacterVboxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer/CharacterSelect/VBoxContainer/CharacterContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 30
+
+[node name="Character" parent="Panel/HBoxContainer/MarginContainer/CharacterSelect/VBoxContainer/CharacterContainer/MarginContainer/CharacterVboxContainer" instance=ExtResource("2_ci1se")]
+layout_mode = 2
+texture = ExtResource("3_rw3mj")
+character_name = "Red Guy"
+
+[node name="CharacterSelectedContainer" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer/CharacterSelect/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer/CharacterSelect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Button2" type="Button" parent="Panel/HBoxContainer/MarginContainer/CharacterSelect/VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(150, 90)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "button"
+
+[node name="Button3" type="Button" parent="Panel/HBoxContainer/MarginContainer/CharacterSelect/VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(150, 90)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "button"
+
+[node name="Button4" type="Button" parent="Panel/HBoxContainer/MarginContainer/CharacterSelect/VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(150, 90)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "button"
+
+[node name="StartButton" type="Button" parent="Panel/HBoxContainer/MarginContainer/CharacterSelect/VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(150, 90)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "start"
+
+[node name="Recipes" type="Panel" parent="Panel/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/MarginContainer/Recipes"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "recipes"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 2
+theme_override_constants/h_separation = 90
+theme_override_constants/v_separation = 90
+columns = 2
+
+[node name="Recipe" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Requirement1" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Requirement2" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Item" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Recipe2" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Requirement1" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Requirement2" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe2"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Item" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Recipe3" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Requirement1" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe3"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Requirement2" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe3"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe3"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Item" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe3"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Recipe4" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Requirement1" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe4"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Requirement2" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe4"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe4"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Item" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe4"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Recipe5" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Requirement1" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe5"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Requirement2" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe5"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe5"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Item" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe5"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Recipe6" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Requirement1" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe6"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Requirement2" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe6"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe6"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Item" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe6"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Recipe7" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Requirement1" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe7"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Requirement2" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe7"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe7"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Item" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe7"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Recipe8" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Requirement1" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe8"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Requirement2" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe8"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe8"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Item" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe8"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Recipe9" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Requirement1" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe9"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Requirement2" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe9"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe9"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Item" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe9"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Recipe10" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Requirement1" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe10"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Requirement2" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe10"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe10"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Item" type="Panel" parent="Panel/HBoxContainer/MarginContainer/Recipes/VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe10"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Options" type="Panel" parent="Panel/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="Panel/HBoxContainer/Panel/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Panel/VBoxContainer/RecipesButton" to="." method="_on_recipes_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Panel/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/MarginContainer/CharacterSelect/VBoxContainer/ButtonsContainer/StartButton" to="." method="_on_start_button_pressed"]

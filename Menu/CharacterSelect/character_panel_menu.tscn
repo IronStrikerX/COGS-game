@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbmq8hnm207ux"]
+
+[ext_resource type="StyleBox" uid="uid://bubvd4t6j32yd" path="res://Menu/Resources/character_panel_menu.tres" id="1_5f5qa"]
+[ext_resource type="Script" uid="uid://yilelowlbh4w" path="res://Menu/CharacterSelect/character_panel_menu.gd" id="1_b6gkd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5f5qa"]
+bg_color = Color(0.49019608, 0.63529414, 0.47843137, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.33333334, 0.44705883, 0.32156864, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_size = 2
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fx0ol"]
+bg_color = Color(0.49193943, 0.6350808, 0.47663438, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0.3323705, 0.4489774, 0.32149756, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_size = 8
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5f5qa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qjwbd"]
+
+[node name="Character" type="Button"]
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = -1
+anchor_right = 0.156
+anchor_bottom = 0.27800003
+offset_right = 0.31999207
+offset_bottom = -0.16001892
+theme_override_styles/normal = ExtResource("1_5f5qa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5f5qa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fx0ol")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5f5qa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qjwbd")
+script = ExtResource("1_b6gkd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+stretch_mode = 3
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[connection signal="clicked" from="." to="." method="_on_clicked"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

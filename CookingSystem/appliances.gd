@@ -22,10 +22,10 @@ var process_timer: float = 0.0
 var process_time: float
 
 var player_color = {
-	1: Color(0.0, 0.0, 1.0, 1.0),
-	2: Color(0.0, 1.0, 0.0, 1.0),
-	3: Color(1.0, 0.0, 0.0, 1.0),
-	4: Color(0.447, 0.0, 1.0, 1.0)
+	0: Color(0.0, 0.0, 1.0, 1.0),
+	1: Color(0.0, 1.0, 0.0, 1.0),
+	2: Color(1.0, 0.0, 0.0, 1.0),
+	3: Color(0.447, 0.0, 1.0, 1.0)
 }
 
 var current_player_using: int
@@ -99,7 +99,7 @@ func reset_spoil_bar():
 		smoke_particle.emitting = false
 
 # make sure player can give food to appliance
-func receive_food(recieved_food: FoodResource, player_id: int) -> bool:
+func receive_food(recieved_food: FoodResource, player_id: int, cooking_speed: float = 1.0) -> bool:
 	if is_sabotaged:
 		return false
 	
@@ -127,7 +127,7 @@ func receive_food(recieved_food: FoodResource, player_id: int) -> bool:
 				
 		# if theres already food on counter then it will try looking for available recipes
 		if selected_food:
-			var cooked_food = cookable_food(recieved_food)
+			var cooked_food = cookable_food(recieved_food, cooking_speed)
 			# checks if a recipe is available
 			if cooked_food:
 				selected_food = cooked_food
@@ -146,7 +146,7 @@ func receive_food(recieved_food: FoodResource, player_id: int) -> bool:
 	else:
 		if not is_cooking:
 			current_player_using = player_id
-			var processed_food = process_food(recieved_food)
+			var processed_food = process_food(recieved_food, cooking_speed)
 			# checks if this appliance plus recieved food can create something
 			if processed_food:
 				selected_food = processed_food
@@ -189,7 +189,7 @@ func set_highlight(x: bool):
 	else:
 		sprite_2d.modulate = Color(0.521, 0.533, 0.521, 1.0) if x else Color(1.0, 1.0, 1.0, 1.0)
 
-func process_food(recieved_food: FoodResource) -> FoodResource:
+func process_food(recieved_food: FoodResource, cooking_speed: float) -> FoodResource:
 	if selected_food or not recieved_food:
 		return null
 		
@@ -200,7 +200,7 @@ func process_food(recieved_food: FoodResource) -> FoodResource:
 		
 		#if the selected_food and appliance is a recipe for something
 		if recieved_food == recipe.requirement[0]:
-			process_time = recipe.time_required
+			process_time = recipe.time_required * cooking_speed
 			smoke_particle.amount = 3
 			smoke_particle.emitting = true
 			start_processing()
@@ -211,7 +211,7 @@ func process_food(recieved_food: FoodResource) -> FoodResource:
 	print("No matching processed recipe found for", str(appliance_type))
 	return null
 
-func cookable_food(recieved_food: FoodResource) -> FoodResource:
+func cookable_food(recieved_food: FoodResource, cooking_speed: float) -> FoodResource:
 	if not selected_food or not recieved_food:
 		return null
 	
@@ -231,7 +231,8 @@ func cookable_food(recieved_food: FoodResource) -> FoodResource:
 		current_names.sort()
 		
 		if requirement_names == current_names:
-			process_time = recipe.time_required
+			process_time = recipe.time_required * cooking_speed
+			print(process_time)
 			start_processing()
 			return recipe.item
 	print("no recipe")

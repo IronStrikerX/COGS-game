@@ -2,9 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 500.0
 const DROP_TIME = 1.5
-const SABOTAGE_TIME = 2
-
-@export var player_id: int
+var sabotage_time = 2
 
 @onready var selected_food_sprite: Sprite2D = %SelectedFood
 @onready var player_sprite: Sprite2D = $PlayerSprite
@@ -20,20 +18,23 @@ var holding: bool = false
 var hold_time: float = 0.0
 var hold_buffer: float = 0.2
 
-func _ready():
-	match player_id:
-		1: 
-			player_sprite.texture = preload("uid://ua4v1jbf0f11")
-		2:
-			player_sprite.texture = preload("uid://5fnneva0kop")
+var cooking_speed = 1
+var movement_speed = 1
+var sabotage_speed = 1
 
+var player_id: int
+
+func _ready():
+	velocity = Vector2(0,0)
+	
 func _physics_process(delta: float) -> void:
 	var prefix = "p%d_" % player_id
 	
 	var x_mov = Input.get_action_strength(prefix + "right") - Input.get_action_strength(prefix + "left")
 	var y_mov = Input.get_action_strength(prefix + "down") - Input.get_action_strength(prefix + "up")
 	var mov = Vector2(x_mov, y_mov)
-	velocity = mov.normalized() * SPEED
+	velocity = mov.normalized() * SPEED * movement_speed
+	print(player_id, velocity)
 	move_and_slide()
 	
 	if Input.is_action_just_pressed(prefix + "action"):
@@ -54,7 +55,7 @@ func _physics_process(delta: float) -> void:
 							else:
 								selected_food_sprite.texture = null
 								
-				if current_appliance.receive_food(selected_food, player_id):
+				if current_appliance.receive_food(selected_food, player_id, cooking_speed):
 					clear_selected_food()
 					
 					
@@ -81,9 +82,9 @@ func _physics_process(delta: float) -> void:
 		elif hold_time >= hold_buffer and current_appliance:
 				# Sabotage appliance
 			drop_bar.visible = true
-			drop_bar.value = hold_time / SABOTAGE_TIME
+			drop_bar.value = hold_time / (sabotage_time * sabotage_speed)
 			
-			if hold_time >= SABOTAGE_TIME:
+			if hold_time >= (sabotage_time * sabotage_speed):
 				if current_appliance and current_appliance.has_method("sabotage_toggle"):
 					current_appliance.sabotage_toggle(player_id)
 				holding = false

@@ -4,10 +4,10 @@
 [ext_resource type="Resource" uid="uid://buwro5ha60tso" path="res://Food/meat.tres" id="2_oomkl"]
 [ext_resource type="Resource" uid="uid://dxgfadj0ylg2" path="res://Food/bread.tres" id="3_buohc"]
 [ext_resource type="Resource" uid="uid://dxlgojlvhfb4g" path="res://Food/potato.tres" id="4_kul4i"]
-[ext_resource type="PackedScene" uid="uid://lmdupea46mc5" path="res://Game/character.tscn" id="6_fsxsm"]
 [ext_resource type="PackedScene" uid="uid://brk4vavxf2gem" path="res://Customer/Customer.tscn" id="7_oomkl"]
 [ext_resource type="Resource" uid="uid://ddlkxipeeb5wj" path="res://Customer/customer_demands.tres" id="8_buohc"]
 [ext_resource type="PackedScene" uid="uid://bghretien1axb" path="res://Game/spawner.tscn" id="9_7gi1t"]
+[ext_resource type="Script" uid="uid://blcsxd88fn3oj" path="res://Game/character_spawner.gd" id="9_fsxsm"]
 [ext_resource type="Resource" uid="uid://btnah8e5d3yet" path="res://CookingSystem/Recipes/Info/AllRecipes.tres" id="9_kul4i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2o6t"]
@@ -24,9 +24,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_e2o6t")
 
 [node name="Panel" type="Panel" parent="Panel"]
 layout_mode = 0
-offset_left = 201.0
+offset_left = 305.0
 offset_top = -2.0
-offset_right = 1000.0
+offset_right = 1005.0
 offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kul4i")
 
@@ -46,16 +46,6 @@ food = ExtResource("4_kul4i")
 
 [node name="Characters" type="Node2D" parent="."]
 
-[node name="CharacterBody2D" parent="Characters" instance=ExtResource("6_fsxsm")]
-z_index = 99
-position = Vector2(1183, 456)
-player_id = 1
-
-[node name="CharacterBody2D2" parent="Characters" instance=ExtResource("6_fsxsm")]
-z_index = 99
-position = Vector2(1175, 221)
-player_id = 2
-
 [node name="Customers" type="Node2D" parent="."]
 
 [node name="Customer" parent="Customers" instance=ExtResource("7_oomkl")]
@@ -74,13 +64,8 @@ possible_demands = ExtResource("8_buohc")
 all_recipes = ExtResource("9_kul4i")
 
 [node name="Spawner" parent="." instance=ExtResource("9_7gi1t")]
-WIDTH = 8
+position = Vector2(5, 8)
 HEIGHT = 7
-list_of_appliances = {
-"Assembly Station": 4,
-"Countertop": 4,
-"Deep Fry Station": 4,
-"Oven": 4,
-"Stove": 4,
-"Trash Bin": 3
-}
+
+[node name="CharacterSpawner" type="Node2D" parent="."]
+script = ExtResource("9_fsxsm")
