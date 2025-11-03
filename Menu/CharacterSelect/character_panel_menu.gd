@@ -1,6 +1,7 @@
 extends Button
 
 signal clicked(texture, id)
+signal hover(id, is_hovered)
 
 @onready var texture_rect: TextureRect = $MarginContainer/VBoxContainer/TextureRect
 @onready var name_label: Label = $MarginContainer/VBoxContainer/NameLabel
@@ -19,3 +20,9 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	clicked.emit(texture, id)
+	
+func _on_mouse_entered() -> void:
+	hover.emit(id, true)
+
+func _on_mouse_exited() -> void:
+	hover.emit(id, false)

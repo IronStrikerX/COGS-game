@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_1vivp")
-name = "cooked_meat"
+name = "cooked meat"
 texture = ExtResource("2_1vivp")
 metadata/_custom_type_script = "uid://ciwpxgba3x5hb"

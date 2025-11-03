@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://3odmco8wdgcg"]
+
+[ext_resource type="Script" uid="uid://dsla0lyu6x65n" path="res://Menu/recipe_showcase.gd" id="1_3qd7j"]
+[ext_resource type="Texture2D" uid="uid://bnofx80chrqxa" path="res://assets/meat.png" id="2_m2oo4"]
+[ext_resource type="Texture2D" uid="uid://ctgd36arv1ifn" path="res://assets/bread.png" id="3_bpl7f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56fk6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[node name="RecipeShowcase" type="HBoxContainer"]
+theme_override_constants/separation = 20
+script = ExtResource("1_3qd7j")
+
+[node name="Requirement1" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+texture = ExtResource("2_m2oo4")
+expand_mode = 4
+
+[node name="Requirement1Label" type="Label" parent="Requirement1"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Requirement2" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+texture = ExtResource("3_bpl7f")
+expand_mode = 4
+
+[node name="Requirement2Label" type="Label" parent="Requirement2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer" type="Panel" parent="."]
+custom_minimum_size = Vector2(30, 20)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_56fk6")
+
+[node name="Item" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+texture = ExtResource("3_bpl7f")
+expand_mode = 4
+
+[node name="ItemLabel" type="Label" parent="Item"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+autowrap_mode = 3

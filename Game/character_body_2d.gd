@@ -28,13 +28,12 @@ func _ready():
 	velocity = Vector2(0,0)
 	
 func _physics_process(delta: float) -> void:
+	z_index = 999
 	var prefix = "p%d_" % player_id
-	
 	var x_mov = Input.get_action_strength(prefix + "right") - Input.get_action_strength(prefix + "left")
 	var y_mov = Input.get_action_strength(prefix + "down") - Input.get_action_strength(prefix + "up")
 	var mov = Vector2(x_mov, y_mov)
 	velocity = mov.normalized() * SPEED * movement_speed
-	print(player_id, velocity)
 	move_and_slide()
 	
 	if Input.is_action_just_pressed(prefix + "action"):

@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://brk4vavxf2gem"]
+[gd_scene load_steps=11 format=3 uid="uid://brk4vavxf2gem"]
 
 [ext_resource type="Script" uid="uid://ut6ap4u8fhnj" path="res://Customer/customer.gd" id="1_nlwrn"]
 [ext_resource type="FontFile" uid="uid://j1ikdqqghm6c" path="res://assets/m3x6.ttf" id="2_47pxv"]
+[ext_resource type="Resource" uid="uid://ddlkxipeeb5wj" path="res://Customer/customer_demands.tres" id="2_ms251"]
+[ext_resource type="Resource" uid="uid://ddtlhqj1nkob3" path="res://CookingSystem/Recipes/Info/Recipe.tres" id="3_i5y8d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2sbmf"]
 bg_color = Color(0.479694, 0.6092363, 0.7854069, 1)
@@ -27,6 +29,8 @@ colors = PackedColorArray(0.3291585, 0.32915837, 0.3291583, 1, 1, 1, 1, 1)
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_nlwrn")
+possible_demands = ExtResource("2_ms251")
+recipes = ExtResource("3_i5y8d")
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = -3.0

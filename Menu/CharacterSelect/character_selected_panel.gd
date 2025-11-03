@@ -1,10 +1,9 @@
 extends Panel
 
 @onready var texture_rect: TextureRect = $TextureRect
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	print(texture_rect)
 	
-func character_selected(texture: Texture):
+func character_selected(texture: Texture) -> void:
 	texture_rect.texture = texture
+
+func clear() :
+	texture_rect.texture = null

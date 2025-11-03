@@ -12,8 +12,7 @@ extends StaticBody2D
 @onready var smoke_particle: CPUParticles2D = $SmokeParticle
 
 var selected_food: FoodResource
-var available_process_recipes: AllRecipes = preload("uid://bj0t716heki1a")
-var available_cookable_recipes: AllRecipes = preload("uid://bx0qv0eh20yw2")
+var available_recipes: AllRecipes = preload("uid://ddtlhqj1nkob3")
 
 var is_sabotaged: bool = false
 var is_cooking: bool = false
@@ -123,6 +122,7 @@ func receive_food(recieved_food: FoodResource, player_id: int, cooking_speed: fl
 		# if appliance is assembly station, it makes sure the player is using theirs
 		if appliance_type == CookingRecipe.ApplianceType.ASSEMBLY_STATION: 
 			if assembly_station_owner != player_id:
+				print("assembly station not yours")
 				return false
 				
 		# if theres already food on counter then it will try looking for available recipes
@@ -134,7 +134,7 @@ func receive_food(recieved_food: FoodResource, player_id: int, cooking_speed: fl
 				selected_food_sprite.texture = cooked_food.texture
 				return true
 			else:
-				print(cooked_food)
+				print("no recipe")
 				return false
 		# no selected food means the food given is the selected food
 		else:
@@ -193,7 +193,7 @@ func process_food(recieved_food: FoodResource, cooking_speed: float) -> FoodReso
 	if selected_food or not recieved_food:
 		return null
 		
-	for recipe in available_process_recipes.recipes:
+	for recipe in available_recipes.processable_recipe:
 		# Only check recipes for this appliance type
 		if recipe.appliance != appliance_type:
 			continue
@@ -215,7 +215,7 @@ func cookable_food(recieved_food: FoodResource, cooking_speed: float) -> FoodRes
 	if not selected_food or not recieved_food:
 		return null
 	
-	for recipe in available_cookable_recipes.recipes:
+	for recipe in available_recipes.cookable_recipe:
 		
 		# Map to names using Array comprehension
 		var requirement_names = []

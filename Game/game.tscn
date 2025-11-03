@@ -1,19 +1,24 @@
-[gd_scene load_steps=12 format=3 uid="uid://mkj2qdb11517"]
+[gd_scene load_steps=14 format=3 uid="uid://mkj2qdb11517"]
 
 [ext_resource type="PackedScene" uid="uid://bip00f1fixjui" path="res://Game/object.tscn" id="1_qmv3x"]
 [ext_resource type="Resource" uid="uid://buwro5ha60tso" path="res://Food/meat.tres" id="2_oomkl"]
 [ext_resource type="Resource" uid="uid://dxgfadj0ylg2" path="res://Food/bread.tres" id="3_buohc"]
 [ext_resource type="Resource" uid="uid://dxlgojlvhfb4g" path="res://Food/potato.tres" id="4_kul4i"]
+[ext_resource type="Script" uid="uid://h3ab05hfir7h" path="res://CustomResource/CookingRecipe.gd" id="7_7gi1t"]
 [ext_resource type="PackedScene" uid="uid://brk4vavxf2gem" path="res://Customer/Customer.tscn" id="7_oomkl"]
 [ext_resource type="Resource" uid="uid://ddlkxipeeb5wj" path="res://Customer/customer_demands.tres" id="8_buohc"]
+[ext_resource type="Script" uid="uid://rq6cbnou45kv" path="res://CustomResource/AllRecipes.gd" id="8_fsxsm"]
 [ext_resource type="PackedScene" uid="uid://bghretien1axb" path="res://Game/spawner.tscn" id="9_7gi1t"]
 [ext_resource type="Script" uid="uid://blcsxd88fn3oj" path="res://Game/character_spawner.gd" id="9_fsxsm"]
-[ext_resource type="Resource" uid="uid://btnah8e5d3yet" path="res://CookingSystem/Recipes/Info/AllRecipes.tres" id="9_kul4i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2o6t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kul4i"]
 bg_color = Color(0.15487596, 0.154876, 0.1548759, 1)
+
+[sub_resource type="Resource" id="Resource_glinl"]
+script = ExtResource("8_fsxsm")
+metadata/_custom_type_script = "uid://rq6cbnou45kv"
 
 [node name="Node2D" type="Node2D"]
 
@@ -30,19 +35,21 @@ offset_right = 1005.0
 offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kul4i")
 
-[node name="Food" type="Node2D" parent="."]
+[node name="Food" type="Node2D" parent="Panel"]
 
-[node name="food" parent="Food" instance=ExtResource("1_qmv3x")]
+[node name="food" parent="Panel/Food" instance=ExtResource("1_qmv3x")]
 position = Vector2(62, 352)
 food = ExtResource("2_oomkl")
 
-[node name="food2" parent="Food" instance=ExtResource("1_qmv3x")]
+[node name="food2" parent="Panel/Food" instance=ExtResource("1_qmv3x")]
 position = Vector2(71, 60)
 food = ExtResource("3_buohc")
 
-[node name="food3" parent="Food" instance=ExtResource("1_qmv3x")]
+[node name="food3" parent="Panel/Food" instance=ExtResource("1_qmv3x")]
 position = Vector2(68, 210)
 food = ExtResource("4_kul4i")
+
+[node name="AppliancesHolder" type="Node2D" parent="."]
 
 [node name="Characters" type="Node2D" parent="."]
 
@@ -51,17 +58,17 @@ food = ExtResource("4_kul4i")
 [node name="Customer" parent="Customers" instance=ExtResource("7_oomkl")]
 position = Vector2(1118, 41)
 possible_demands = ExtResource("8_buohc")
-all_recipes = ExtResource("9_kul4i")
+all_recipes = SubResource("Resource_glinl")
 
 [node name="Customer2" parent="Customers" instance=ExtResource("7_oomkl")]
 position = Vector2(1116, 288)
 possible_demands = ExtResource("8_buohc")
-all_recipes = ExtResource("9_kul4i")
+all_recipes = SubResource("Resource_glinl")
 
 [node name="Customer3" parent="Customers" instance=ExtResource("7_oomkl")]
 position = Vector2(1114, 536)
 possible_demands = ExtResource("8_buohc")
-all_recipes = ExtResource("9_kul4i")
+all_recipes = SubResource("Resource_glinl")
 
 [node name="Spawner" parent="." instance=ExtResource("9_7gi1t")]
 position = Vector2(5, 8)

@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var possible_demands: CustomerDemands
-@export var all_recipes: AllRecipes
+@export var recipes: AllRecipes
 
 @onready var food_desired: Sprite2D = $FoodDesired
 @onready var panel: Panel = $Panel
@@ -60,9 +60,9 @@ func complete_processing():
 # find the total amount of time it would take to prepare the meal using recursion
 func get_total_cook_time(food: FoodResource) -> float:
 	# trying to find a recipe for this food
-	for recipe in all_recipes.recipes:
+	for recipe in recipes.all_recipes:
 		if recipe.item == food:
-			var total_time := recipe.time_required
+			var total_time = recipe.time_required
 			
 			# For each ingredient recursively get its time
 			for ingredient in recipe.requirement:

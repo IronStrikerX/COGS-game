@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AllRecipes" load_steps=9 format=3 uid="uid://ddtlhqj1nkob3"]
+
+[ext_resource type="Script" uid="uid://h3ab05hfir7h" path="res://CustomResource/CookingRecipe.gd" id="1_olo6p"]
+[ext_resource type="Script" uid="uid://rq6cbnou45kv" path="res://CustomResource/AllRecipes.gd" id="2_8ixpg"]
+[ext_resource type="Resource" uid="uid://cysw8enlj12fi" path="res://CookingSystem/Recipes/Processed/fries.tres" id="2_o5u0v"]
+[ext_resource type="Resource" uid="uid://ddmmobr1h2wum" path="res://CookingSystem/Recipes/Cookable/hamburger.tres" id="3_1u31u"]
+[ext_resource type="Resource" uid="uid://8ns5am6tppsh" path="res://CookingSystem/Recipes/Cookable/happy_meal.tres" id="4_o2ky8"]
+[ext_resource type="Resource" uid="uid://cekmms8nmhwa6" path="res://CookingSystem/Recipes/Processed/cooked_meat.tres" id="5_iadrr"]
+[ext_resource type="Resource" uid="uid://blee7vrhfc02u" path="res://CookingSystem/Recipes/Processed/baked_potato.tres" id="6_6p8ow"]
+[ext_resource type="Resource" uid="uid://cp02ehbtbgdid" path="res://CookingSystem/Recipes/Cookable/stuffed_baked_potato.tres" id="7_2okcq"]
+
+[resource]
+script = ExtResource("2_8ixpg")
+all_recipes = Array[ExtResource("1_olo6p")]([ExtResource("2_o5u0v"), ExtResource("3_1u31u"), ExtResource("4_o2ky8"), ExtResource("5_iadrr"), ExtResource("6_6p8ow"), ExtResource("7_2okcq")])
+cookable_recipe = Array[ExtResource("1_olo6p")]([ExtResource("7_2okcq"), ExtResource("4_o2ky8"), ExtResource("3_1u31u")])
+processable_recipe = Array[ExtResource("1_olo6p")]([ExtResource("2_o5u0v"), ExtResource("5_iadrr"), ExtResource("6_6p8ow")])
+metadata/_custom_type_script = "uid://rq6cbnou45kv"

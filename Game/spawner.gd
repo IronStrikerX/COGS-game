@@ -1,21 +1,21 @@
 extends Node2D
 const APPLIANCES = preload("uid://brrm84npst7bp")
-
+@onready var appliances_holder: Node2D = $"../AppliancesHolder"
 @export var HEIGHT : int
 
 const CELL_SIZE := Vector2(100, 100)
 
 var all_cells = []
-var assembly_station_count = 1
+var assembly_station_count = 0
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("debug"):
 		all_cells = []
-		assembly_station_count = 1
+		assembly_station_count = 0
 		for y in range(HEIGHT):
 			for x in range(GameInfo.kitchen_width):
 				all_cells.append(Vector2(x, y))
-		for child in get_children():
+		for child in appliances_holder.get_children():
 			child.queue_free()
 			
 		var grid = generate_map()
@@ -70,7 +70,7 @@ func spawn_map(grid):
 				new_appliance.assembly_station_owner = assembly_station_count
 				assembly_station_count += 1
 		
-		add_child(new_appliance)
+		appliances_holder.add_child(new_appliance)
 
 
 func generate_map():

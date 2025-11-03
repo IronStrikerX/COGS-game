@@ -1,12 +1,20 @@
 extends Control
 
+@export var all_recipes: AllRecipes
+
 @onready var character_select: Panel = %CharacterSelect
 @onready var recipes: Panel = %Recipes
 @onready var options: Panel = %Options
 
+@onready var recipe_showcase_container: GridContainer = %RecipeShowcaseContainer
 @onready var character_selected_container: HBoxContainer = %CharacterSelectedContainer
 @onready var character_vbox_container: HBoxContainer = %CharacterVboxContainer
-@onready var character_selecter_scene = preload("res://Menu/CharacterSelect/character_panel_menu.tscn")
+
+@onready var buffs_label: Label = %BuffsLabel
+@onready var nerfs_label: Label = %NerfsLabel
+
+@onready var recipe_showcase_scene = preload("uid://3odmco8wdgcg")
+@onready var character_selecter_scene = preload("uid://dbmq8hnm207ux")
 @onready var character_selected_scene = preload("uid://cxeihroida3jr")
 var player_count := 0
 
@@ -41,23 +49,36 @@ var character_info := {
 }
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	character_select.visible = true
+	recipes.visible = false
+	options.visible = false
+	# === Character Select ===
 	for i in range(4):
 		var new_character = character_selecter_scene.instantiate()
 		new_character.character_name = character_info[i]["name"]
 		new_character.texture = character_info[i]["texture"]
+		new_character.id = i
 		new_character.clicked.connect(_on_character_select)
+		new_character.hover.connect(_on_character_hover)
 		character_vbox_container.add_child(new_character)
-	character_vbox_container.get_child(0).queue_free()
 	
 	for i in range(4):
 		var new_character_selected = character_selected_scene.instantiate()
 		players_selected.append(new_character_selected)
 		character_selected_container.add_child(new_character_selected)
-	# reset to zero for selecting
+	
+	# === Recipe Showcase ===
+	for recipe in all_recipes.processable_recipe:
+		var new_recipe = recipe_showcase_scene.instantiate()
+		recipe_showcase_container.add_child(new_recipe)
+		new_recipe.show_processable_recipe(recipe.requirement[0], recipe.appliance, recipe.item)
+	
+	for recipe in all_recipes.cookable_recipe:
+		var new_recipe = recipe_showcase_scene.instantiate()
+		recipe_showcase_container.add_child(new_recipe)
+		new_recipe.show_cookable_recipe(recipe.requirement[0], recipe.requirement[1], recipe.item)
 
-	character_select.visible = true
-	recipes.visible = false
-	options.visible = false
+
 
 # when character panel is selected
 func _on_character_select(texture: Texture, id: int) -> void:
@@ -68,6 +89,12 @@ func _on_character_select(texture: Texture, id: int) -> void:
 									"cooking speed" : character_info[id]["cooking speed"],
 									"sabotage speed" : character_info[id]["sabotage speed"]}
 		player_count += 1
+		
+func _on_character_hover(id: int, is_hovered: bool) -> void:
+	if is_hovered:
+		buffs_label.text = "Movement Multiplier: %s\nCooking Multiplier: %s \n Sabotage Multiplier: %s" % [character_info[id]["movement speed"], character_info[id]["cooking speed"], character_info[id]["sabotage speed"]]
+	else:
+		buffs_label.text = ""
 
 func _on_play_button_pressed() -> void:
 	character_select.visible = true
@@ -109,3 +136,10 @@ func _on_start_button_pressed() -> void:
 		GameInfo.player_count = player_count
 		
 		get_tree().change_scene_to_file("res://Game/game.tscn")
+
+
+func _on_clear_characters_selected_button_pressed() -> void:
+	player_count = 0
+	for character in character_selected_container.get_children():
+		character.clear()
+	GameInfo.players_info = {}
